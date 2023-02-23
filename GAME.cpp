@@ -1,6 +1,7 @@
 #include "GAME.h"
 #include"libOne.h"
 #include"CONTAINER.h"
+#include"SCENE.h"
 GAME::GAME() {
     Container = new CONTAINER;
 }

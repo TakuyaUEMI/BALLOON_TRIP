@@ -11,7 +11,8 @@ public:
 public:
 	enum SCENE_ID {
 		TITLE_ID,
-		STAGE_ID,
+		FIXED_STAGE_ID,
+		AUTO_STAGE_ID,
 		GAME_CLEAR_ID,
 		GAME_OVER_ID,
 		NUM_SCENES

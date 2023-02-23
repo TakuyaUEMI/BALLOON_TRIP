@@ -5,11 +5,32 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="manager">
+      <UniqueIdentifier>{1124963f-99be-4367-a006-db6541c4d00d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="scene">
+      <UniqueIdentifier>{b2add5b1-2d05-4a0f-a178-5b2c81dc46da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="character">
+      <UniqueIdentifier>{c268d89c-acee-443a-8799-1fad93812c64}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="GAME.cpp" />
-    <ClCompile Include="CONTAINER.cpp" />
+    <ClCompile Include="CONTAINER.cpp">
+      <Filter>manager</Filter>
+    </ClCompile>
+    <ClCompile Include="GAME.cpp">
+      <Filter>manager</Filter>
+    </ClCompile>
+    <ClCompile Include="GAME_OBJECT.cpp">
+      <Filter>manager</Filter>
+    </ClCompile>
+    <ClCompile Include="SCENE.cpp">
+      <Filter>scene</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>manager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resource.rc">
@@ -17,7 +38,17 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GAME.h" />
-    <ClInclude Include="CONTAINER.h" />
+    <ClInclude Include="CONTAINER.h">
+      <Filter>manager</Filter>
+    </ClInclude>
+    <ClInclude Include="GAME.h">
+      <Filter>manager</Filter>
+    </ClInclude>
+    <ClInclude Include="SCENE.h">
+      <Filter>scene</Filter>
+    </ClInclude>
+    <ClInclude Include="GAME_OBJECT.h">
+      <Filter>manager</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
