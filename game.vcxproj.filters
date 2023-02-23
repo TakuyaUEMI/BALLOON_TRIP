@@ -8,10 +8,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="GAME.cpp" />
+    <ClCompile Include="CONTAINER.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resource.rc">
       <Filter>リソース ファイル</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GAME.h" />
+    <ClInclude Include="CONTAINER.h" />
   </ItemGroup>
 </Project>
