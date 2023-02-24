@@ -16,6 +16,16 @@ void CONTAINER::setData() {
 
 }
 
+void CONTAINER::setTitle() {
+	D.title.backColor = COLOR();
+}
+void CONTAINER::setGameClear() {
+
+}
+void CONTAINER::setGameOver() {
+
+}
+
 void CONTAINER::loadGraphic() {
 
 }

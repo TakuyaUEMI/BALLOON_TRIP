@@ -31,6 +31,8 @@
     <ClCompile Include="main.cpp">
       <Filter>manager</Filter>
     </ClCompile>
+    <ClCompile Include="PLAYER.cpp" />
+    <ClCompile Include="TITLE.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resource.rc">
@@ -50,5 +52,7 @@
     <ClInclude Include="GAME_OBJECT.h">
       <Filter>manager</Filter>
     </ClInclude>
+    <ClInclude Include="PLAYER.h" />
+    <ClInclude Include="TITLE.h" />
   </ItemGroup>
 </Project>

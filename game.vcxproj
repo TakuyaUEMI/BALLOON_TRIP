@@ -138,7 +138,9 @@
     <ClCompile Include="GAME.cpp" />
     <ClCompile Include="GAME_OBJECT.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="PLAYER.cpp" />
     <ClCompile Include="SCENE.cpp" />
+    <ClCompile Include="TITLE.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resource.rc" />
@@ -152,7 +154,9 @@
     <ClInclude Include="CONTAINER.h" />
     <ClInclude Include="GAME.h" />
     <ClInclude Include="GAME_OBJECT.h" />
+    <ClInclude Include="PLAYER.h" />
     <ClInclude Include="SCENE.h" />
+    <ClInclude Include="TITLE.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
