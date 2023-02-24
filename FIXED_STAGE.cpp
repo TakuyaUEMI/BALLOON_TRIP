@@ -12,7 +12,7 @@ void FIXED_STAGE::init() {
 
 }
 void FIXED_STAGE::update() {
-
+	
 }
 void FIXED_STAGE::draw() {
 	clear();

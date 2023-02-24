@@ -25,9 +25,10 @@ public:
 
 //キャラクター
 private:
-	
+	class PLAYER* Player;
 public:
 	void draw();
+	class PLAYER* player() { return Player; }
 
 //コンストラクタとか
 public:

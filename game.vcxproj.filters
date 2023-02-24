@@ -33,6 +33,10 @@
     </ClCompile>
     <ClCompile Include="PLAYER.cpp" />
     <ClCompile Include="TITLE.cpp" />
+    <ClCompile Include="AUTO_STAGE.cpp" />
+    <ClCompile Include="FIXED_STAGE.cpp" />
+    <ClCompile Include="GAME_CLEAR.cpp" />
+    <ClCompile Include="GAME_OVER.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resource.rc">
@@ -54,5 +58,9 @@
     </ClInclude>
     <ClInclude Include="PLAYER.h" />
     <ClInclude Include="TITLE.h" />
+    <ClInclude Include="AUTO_STAGE.h" />
+    <ClInclude Include="FIXED_STAGE.h" />
+    <ClInclude Include="GAME_CLEAR.h" />
+    <ClInclude Include="GAME_OVER.h" />
   </ItemGroup>
 </Project>

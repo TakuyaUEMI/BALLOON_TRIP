@@ -7,6 +7,7 @@
 #include"AUTO_STAGE.h"
 #include"GAME_CLEAR.h"
 #include"GAME_OVER.h"
+#include"PLAYER.h"
 GAME::GAME() {
     Container = new CONTAINER;
     Scenes[TITLE_ID] = new TITLE(this);
@@ -14,6 +15,8 @@ GAME::GAME() {
     Scenes[AUTO_STAGE_ID] = new AUTO_STAGE(this);
     Scenes[GAME_CLEAR_ID] = new GAME_CLEAR(this);
     Scenes[GAME_OVER_ID] = new GAME_OVER(this);
+
+    Player = new PLAYER(this);
 }
 
 GAME::~GAME() {
@@ -35,7 +38,7 @@ void GAME::run() {
 }
 
 void GAME::changeScene(SCENE_ID sceneId) {
-
+    CurSceneId = sceneId;
 }
 
 void GAME::draw() {
