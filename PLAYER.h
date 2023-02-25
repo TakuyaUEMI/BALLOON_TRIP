@@ -15,6 +15,7 @@ public:
         VECTOR2 accel;
         VECTOR2 maxSpeed;
         VECTOR2 reductionRate;
+        float reductionRatio;
         float gravity;
         //�̗͊֌W
         int hp;
@@ -31,6 +32,7 @@ private:
 public:
     PLAYER(class GAME* game);
     ~PLAYER();
+    void create();
     void init();
     void update();
         void move();

@@ -30,10 +30,13 @@ void GAME::run() {
     for (int i = 0; i < NUM_SCENES; i++) {
         Scenes[i]->create();
     }
+    Player->create();
+    CurSceneId = TITLE_ID;
+    Scenes[CurSceneId]->init();
     initDeltaTime();
     while (notQuit) {
         setDeltaTime();
-        //Scenes[CurSceneId]->proc();
+        Scenes[CurSceneId]->proc();
     }
 }
 

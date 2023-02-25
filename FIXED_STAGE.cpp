@@ -12,10 +12,10 @@ void FIXED_STAGE::init() {
 
 }
 void FIXED_STAGE::update() {
-	
+	game()->player()->update();
 }
 void FIXED_STAGE::draw() {
-	clear();
+	clear(0);
 	game()->draw();
 }
 void FIXED_STAGE::nextScene() {

@@ -17,12 +17,12 @@ public:
         //操作説明テキスト
         COLOR manualTextColor;
         float manualTextSize;
-        VECTOR2 manualTextPosit;
+        VECTOR2 manualPosit;
         char manualStr[100];
         //ゲームスタート方法テキスト
         COLOR startTextColor;
         float startTextSize;
-        VECTOR2 startTextPosit;
+        VECTOR2 startPosit;
         char startStr[100];
     };
 private:

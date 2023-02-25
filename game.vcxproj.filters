@@ -32,11 +32,21 @@
       <Filter>manager</Filter>
     </ClCompile>
     <ClCompile Include="PLAYER.cpp" />
-    <ClCompile Include="TITLE.cpp" />
-    <ClCompile Include="AUTO_STAGE.cpp" />
-    <ClCompile Include="FIXED_STAGE.cpp" />
-    <ClCompile Include="GAME_CLEAR.cpp" />
-    <ClCompile Include="GAME_OVER.cpp" />
+    <ClCompile Include="TITLE.cpp">
+      <Filter>scene</Filter>
+    </ClCompile>
+    <ClCompile Include="GAME_OVER.cpp">
+      <Filter>scene</Filter>
+    </ClCompile>
+    <ClCompile Include="GAME_CLEAR.cpp">
+      <Filter>scene</Filter>
+    </ClCompile>
+    <ClCompile Include="FIXED_STAGE.cpp">
+      <Filter>scene</Filter>
+    </ClCompile>
+    <ClCompile Include="AUTO_STAGE.cpp">
+      <Filter>scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resource.rc">
@@ -57,10 +67,20 @@
       <Filter>manager</Filter>
     </ClInclude>
     <ClInclude Include="PLAYER.h" />
-    <ClInclude Include="TITLE.h" />
-    <ClInclude Include="AUTO_STAGE.h" />
-    <ClInclude Include="FIXED_STAGE.h" />
-    <ClInclude Include="GAME_CLEAR.h" />
-    <ClInclude Include="GAME_OVER.h" />
+    <ClInclude Include="TITLE.h">
+      <Filter>scene</Filter>
+    </ClInclude>
+    <ClInclude Include="GAME_OVER.h">
+      <Filter>scene</Filter>
+    </ClInclude>
+    <ClInclude Include="GAME_CLEAR.h">
+      <Filter>scene</Filter>
+    </ClInclude>
+    <ClInclude Include="FIXED_STAGE.h">
+      <Filter>scene</Filter>
+    </ClInclude>
+    <ClInclude Include="AUTO_STAGE.h">
+      <Filter>scene</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
