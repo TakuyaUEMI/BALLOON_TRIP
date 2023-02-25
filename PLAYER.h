@@ -1,9 +1,9 @@
 #pragma once
-#include "GAME_OBJECT.h"
+#include "CHARACTER.h"
 #include"VECTOR2.h"
 #include"COLOR.h"
 class PLAYER :
-    public GAME_OBJECT
+    public CHARACTER
 {
 public:
     struct DATA {
@@ -34,6 +34,7 @@ public:
     ~PLAYER();
     void create();
     void init();
+    void appear(float wx,float wy);
     void update();
         void move();
     void draw();

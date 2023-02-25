@@ -16,6 +16,7 @@ void CONTAINER::load() {
 void CONTAINER::setData() {
 	setTitle();
 	setPlayer();
+	setMap();
 }
 
 void CONTAINER::setTitle() {
@@ -36,6 +37,10 @@ void CONTAINER::setTitle() {
 	D.title.startPosit = VECTOR2(200, 800);
 	strcpy_s(D.title.startStr, "PRESS ENTER");
 }
+void CONTAINER::setMap() {
+	D.map.fileName = "stage.txt";
+	D.map.chipSize = 60;
+}
 void CONTAINER::setGameClear() {
 
 }
@@ -47,7 +52,8 @@ void CONTAINER::loadGraphic() {
 
 }
 void CONTAINER::setPlayer() {
-	D.player.posit = VECTOR2(200, height / 2);
+	D.playerCharacter.characterID = MAP::PLAYER_ID;
+	D.player.posit = VECTOR2(1000, height / 2);
 	D.player.advSpeed = VECTOR2(0, 0);
 	D.player.accel = VECTOR2(10, 20);
 	D.player.maxSpeed = VECTOR2(600, 400);

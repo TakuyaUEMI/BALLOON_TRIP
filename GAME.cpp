@@ -7,16 +7,19 @@
 #include"AUTO_STAGE.h"
 #include"GAME_CLEAR.h"
 #include"GAME_OVER.h"
-#include"PLAYER.h"
+#include"CHARACTER_MANAGER.h"
+#include"MAP.h"
 GAME::GAME() {
     Container = new CONTAINER;
     Scenes[TITLE_ID] = new TITLE(this);
     Scenes[FIXED_STAGE_ID] = new FIXED_STAGE(this);
+    Map = new MAP(this);
     Scenes[AUTO_STAGE_ID] = new AUTO_STAGE(this);
     Scenes[GAME_CLEAR_ID] = new GAME_CLEAR(this);
     Scenes[GAME_OVER_ID] = new GAME_OVER(this);
 
-    Player = new PLAYER(this);
+    CharacterManager = new CHARACTER_MANAGER(this);
+
 }
 
 GAME::~GAME() {
@@ -30,7 +33,8 @@ void GAME::run() {
     for (int i = 0; i < NUM_SCENES; i++) {
         Scenes[i]->create();
     }
-    Player->create();
+    CharacterManager->create();
+    Map->create();
     CurSceneId = TITLE_ID;
     Scenes[CurSceneId]->init();
     initDeltaTime();
@@ -42,9 +46,5 @@ void GAME::run() {
 
 void GAME::changeScene(SCENE_ID sceneId) {
     CurSceneId = sceneId;
-}
-
-void GAME::draw() {
-    clear();
-    Player->draw();
+    Scenes[CurSceneId]->init();
 }

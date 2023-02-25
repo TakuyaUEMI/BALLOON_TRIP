@@ -19,16 +19,17 @@ public:
 	};
 private:
 	class SCENE* Scenes[NUM_SCENES];
+	class MAP* Map;
 	SCENE_ID CurSceneId;
 public:
+	class MAP* map() { return Map; }
 	void changeScene(SCENE_ID sceneId);
 
 //キャラクター
 private:
-	class PLAYER* Player;
+	class CHARACTER_MANAGER* CharacterManager;
 public:
-	void draw();
-	class PLAYER* player() { return Player; }
+	class CHARACTER_MANAGER* characterManager() { return CharacterManager; }
 
 //コンストラクタとか
 public:

@@ -47,6 +47,9 @@
     <ClCompile Include="AUTO_STAGE.cpp">
       <Filter>scene</Filter>
     </ClCompile>
+    <ClCompile Include="MAP.cpp" />
+    <ClCompile Include="CHARACTER_MANAGER.cpp" />
+    <ClCompile Include="CHARACTER.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resource.rc">
@@ -82,5 +85,8 @@
     <ClInclude Include="AUTO_STAGE.h">
       <Filter>scene</Filter>
     </ClInclude>
+    <ClInclude Include="MAP.h" />
+    <ClInclude Include="CHARACTER_MANAGER.h" />
+    <ClInclude Include="CHARACTER.h" />
   </ItemGroup>
 </Project>

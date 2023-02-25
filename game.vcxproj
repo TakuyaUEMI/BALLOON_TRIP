@@ -135,6 +135,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AUTO_STAGE.cpp" />
+    <ClCompile Include="CHARACTER.cpp" />
+    <ClCompile Include="CHARACTER_MANAGER.cpp" />
     <ClCompile Include="CONTAINER.cpp" />
     <ClCompile Include="FIXED_STAGE.cpp" />
     <ClCompile Include="GAME.cpp" />
@@ -142,6 +144,7 @@
     <ClCompile Include="GAME_OBJECT.cpp" />
     <ClCompile Include="GAME_OVER.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MAP.cpp" />
     <ClCompile Include="PLAYER.cpp" />
     <ClCompile Include="SCENE.cpp" />
     <ClCompile Include="TITLE.cpp" />
@@ -156,12 +159,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AUTO_STAGE.h" />
+    <ClInclude Include="CHARACTER.h" />
+    <ClInclude Include="CHARACTER_MANAGER.h" />
     <ClInclude Include="CONTAINER.h" />
     <ClInclude Include="FIXED_STAGE.h" />
     <ClInclude Include="GAME.h" />
     <ClInclude Include="GAME_CLEAR.h" />
     <ClInclude Include="GAME_OBJECT.h" />
     <ClInclude Include="GAME_OVER.h" />
+    <ClInclude Include="MAP.h" />
     <ClInclude Include="PLAYER.h" />
     <ClInclude Include="SCENE.h" />
     <ClInclude Include="TITLE.h" />

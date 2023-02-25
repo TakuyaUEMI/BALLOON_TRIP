@@ -3,16 +3,21 @@
 #include"GAME.h"
 #include"CONTAINER.h"
 PLAYER::PLAYER(class GAME* game):
-	GAME_OBJECT(game){
+	CHARACTER(game){
 }
 PLAYER::~PLAYER() {
 
 }
 void PLAYER::create() {
 	Player = game()->container()->data().player;
+	Character = game()->container()->data().playerCharacter;
 }
 void PLAYER::init() {
 
+}
+void PLAYER::appear(float wx,float wy) {
+	Player.posit.x = wx;
+	Player.posit.y = wy;
 }
 void PLAYER::update() {
 	move();
