@@ -37,6 +37,7 @@ public:
     void appear(float wx,float wy);
     void update();
         void move();
+        void calcDrawPosit();
     void draw();
 };
 

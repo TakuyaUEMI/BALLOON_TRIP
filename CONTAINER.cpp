@@ -15,8 +15,9 @@ void CONTAINER::load() {
 
 void CONTAINER::setData() {
 	setTitle();
-	setPlayer();
 	setMap();
+	setPlayer();
+	setBalloons();
 }
 
 void CONTAINER::setTitle() {
@@ -40,6 +41,7 @@ void CONTAINER::setTitle() {
 void CONTAINER::setMap() {
 	D.map.fileName = "stage.txt";
 	D.map.chipSize = 60;
+	D.map.scrollSpeed = 60;
 }
 void CONTAINER::setGameClear() {
 
@@ -53,10 +55,11 @@ void CONTAINER::loadGraphic() {
 }
 void CONTAINER::setPlayer() {
 	D.playerCharacter.characterID = MAP::PLAYER_ID;
-	D.player.posit = VECTOR2(1000, height / 2);
+
+	D.player.posit = VECTOR2(120, height);
 	D.player.advSpeed = VECTOR2(0, 0);
 	D.player.accel = VECTOR2(10, 20);
-	D.player.maxSpeed = VECTOR2(600, 400);
+	D.player.maxSpeed = VECTOR2(10, 10);
 	D.player.reductionRate = (30, 30);
 	D.player.reductionRatio = 0.99f;
 	D.player.gravity = 6.0f;
@@ -69,4 +72,17 @@ void CONTAINER::setPlayer() {
 	D.player.fillColor = COLOR(100, 220, 230);
 	D.player.wide = 60;
 	D.player.high = 60;
+}
+
+void CONTAINER::setBalloons() {
+	D.balloonsCharacter.characterID = MAP::BALLOON_ID;
+
+	D.balloons.totalNum = 100;
+	D.balloons.currentNum = 0;
+	D.balloons.consecutiveNum = 0;
+	D.balloons.initHp = 1;
+	D.balloons.fillColor = COLOR(150, 240, 10);
+	D.balloons.diameter = 60;
+	D.balloons.missFrag = 0;
+	D.balloons.collisionRadius = D.balloons.diameter / 2;
 }

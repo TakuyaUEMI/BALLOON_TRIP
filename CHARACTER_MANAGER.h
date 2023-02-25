@@ -12,6 +12,8 @@ public:
 private:
     DATA CharacterManager;
     class PLAYER* Player = nullptr;
+    class BALLOONS* Balloons = nullptr;
+
 public:
     CHARACTER_MANAGER(class GAME* game);
     ~CHARACTER_MANAGER();

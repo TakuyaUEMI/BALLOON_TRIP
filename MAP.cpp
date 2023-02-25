@@ -71,6 +71,7 @@ void MAP::draw() {
             char charaId = Map.data[r * Map.cols + c];
             if (charaId >= 'a' && charaId <= 'z') {
                 game()->characterManager()->appear(charaId, wx, wy);
+                //game()->characterManager()->appear(charaId, wx - Map.wx, wy - Map.wy);
                 Map.data[r * Map.cols + c] = '.';
             }
         }

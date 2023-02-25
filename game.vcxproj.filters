@@ -14,6 +14,9 @@
     <Filter Include="character">
       <UniqueIdentifier>{c268d89c-acee-443a-8799-1fad93812c64}</UniqueIdentifier>
     </Filter>
+    <Filter Include="map">
+      <UniqueIdentifier>{a2b4b8d0-7520-44c3-85a8-31ccdaeb3265}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CONTAINER.cpp">
@@ -31,7 +34,6 @@
     <ClCompile Include="main.cpp">
       <Filter>manager</Filter>
     </ClCompile>
-    <ClCompile Include="PLAYER.cpp" />
     <ClCompile Include="TITLE.cpp">
       <Filter>scene</Filter>
     </ClCompile>
@@ -47,9 +49,19 @@
     <ClCompile Include="AUTO_STAGE.cpp">
       <Filter>scene</Filter>
     </ClCompile>
-    <ClCompile Include="MAP.cpp" />
-    <ClCompile Include="CHARACTER_MANAGER.cpp" />
-    <ClCompile Include="CHARACTER.cpp" />
+    <ClCompile Include="CHARACTER.cpp">
+      <Filter>character</Filter>
+    </ClCompile>
+    <ClCompile Include="CHARACTER_MANAGER.cpp">
+      <Filter>character</Filter>
+    </ClCompile>
+    <ClCompile Include="PLAYER.cpp">
+      <Filter>character</Filter>
+    </ClCompile>
+    <ClCompile Include="MAP.cpp">
+      <Filter>map</Filter>
+    </ClCompile>
+    <ClCompile Include="BALLOONS.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resource.rc">
@@ -69,7 +81,6 @@
     <ClInclude Include="GAME_OBJECT.h">
       <Filter>manager</Filter>
     </ClInclude>
-    <ClInclude Include="PLAYER.h" />
     <ClInclude Include="TITLE.h">
       <Filter>scene</Filter>
     </ClInclude>
@@ -85,8 +96,18 @@
     <ClInclude Include="AUTO_STAGE.h">
       <Filter>scene</Filter>
     </ClInclude>
-    <ClInclude Include="MAP.h" />
-    <ClInclude Include="CHARACTER_MANAGER.h" />
-    <ClInclude Include="CHARACTER.h" />
+    <ClInclude Include="CHARACTER.h">
+      <Filter>character</Filter>
+    </ClInclude>
+    <ClInclude Include="CHARACTER_MANAGER.h">
+      <Filter>character</Filter>
+    </ClInclude>
+    <ClInclude Include="PLAYER.h">
+      <Filter>character</Filter>
+    </ClInclude>
+    <ClInclude Include="MAP.h">
+      <Filter>map</Filter>
+    </ClInclude>
+    <ClInclude Include="BALLOONS.h" />
   </ItemGroup>
 </Project>

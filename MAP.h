@@ -38,5 +38,6 @@ public:
     float wx() { return Map.wx; }
     float wy() { return Map.wy; }
     int chipSize() { return Map.chipSize; }
+    int scrollSpeed() { return Map.scrollSpeed; }
 };
 

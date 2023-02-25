@@ -55,6 +55,7 @@ void PLAYER::move() {
 		Player.posit.y = height - Player.high / 2;
 		Player.advSpeed.y = 0;
 	}
+
 }
 void PLAYER::draw() {
 	rectMode(CENTER);

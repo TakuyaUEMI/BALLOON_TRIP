@@ -3,6 +3,7 @@
 #include"GAME_CLEAR.h"
 #include"GAME_OVER.h"
 #include"PLAYER.h"
+#include"BALLOONS.h"
 #include"MAP.h"
 #include"CHARACTER.h"
 class CONTAINER
@@ -15,6 +16,8 @@ private:
 		GAME_OVER::DATA gameOver;
 		PLAYER::DATA player;
 		CHARACTER::DATA playerCharacter;
+		BALLOONS::DATA balloons;
+		CHARACTER::DATA balloonsCharacter;
 	};
 	DATA D;
 public:
@@ -27,6 +30,7 @@ public:
 			void setGameClear();
 			void setGameOver();
 			void setPlayer();
+			void setBalloons();
 		void loadGraphic();
 	const DATA& data() { return D; }
 };
