@@ -62,6 +62,7 @@
       <Filter>map</Filter>
     </ClCompile>
     <ClCompile Include="BALLOONS.cpp" />
+    <ClCompile Include="SCORE.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resource.rc">
@@ -109,5 +110,6 @@
       <Filter>map</Filter>
     </ClInclude>
     <ClInclude Include="BALLOONS.h" />
+    <ClInclude Include="SCORE.h" />
   </ItemGroup>
 </Project>

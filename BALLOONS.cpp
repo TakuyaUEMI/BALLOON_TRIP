@@ -2,6 +2,8 @@
 #include"libOne.h"
 #include"GAME.h"
 #include"CONTAINER.h"
+#include"CHARACTER_MANAGER.h"
+#include"SCORE.h"
 
 BALLOONS::BALLOONS(class GAME* game):
 	CHARACTER(game){
@@ -24,9 +26,10 @@ void BALLOONS::appear(float wx, float wy) {
 	
 }
 void BALLOONS::update() {
-	textSize(100);
-	print(AllBalloon.currentNum);
 	move();
+	collision();
+	miss();
+	
 }
 void BALLOONS::move() {
 	for (int i = AllBalloon.currentNum - 1; i >= 0; i--) {
@@ -38,7 +41,32 @@ void BALLOONS::draw() {
 	for (int i = AllBalloon.currentNum - 1; i >= 0; i--) {
 		circle(Balloon[i].posit.x, Balloon[i].posit.y, AllBalloon.diameter);
 	}
+	textSize(100);
+	print(AllBalloon.consecutiveNum);
 }
-void BALLOONS::kill() {
+void BALLOONS::collision() {
+	PLAYER* player = game()->characterManager()->player();
+	float distance = player->collosionRadius() + AllBalloon.collisionRadius;
+	float sqDistance = distance * distance;
+	for (int i = AllBalloon.currentNum - 1; i >= 0; i--) {
+		VECTOR2 vec = player->posit() - Balloon[i].posit;
+		if (sqLength(vec) < sqDistance) {
+			kill(i);
+			AllBalloon.consecutiveNum++;
+			game()->score()->addScore();
+		}
+	}
+}
+void BALLOONS::miss() {
+	for (int i = AllBalloon.currentNum - 1; i >= 0; i--) {
+		if (Balloon[i].posit.x < -AllBalloon.diameter / 2) {
+			kill(i);
+			AllBalloon.consecutiveNum = 0;
+		}
+	}
+}
 
+void BALLOONS::kill(int i) {
+	AllBalloon.currentNum--;
+	Balloon[i] = Balloon[AllBalloon.currentNum];
 }

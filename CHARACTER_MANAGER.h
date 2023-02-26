@@ -22,5 +22,8 @@ public:
     void appear(char ID, float wx, float wy);
     void update();
     void draw();
+    PLAYER* player() { return Player; }
+    BALLOONS* balloons() { return Balloons; }
+
 };
 

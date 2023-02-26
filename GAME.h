@@ -30,7 +30,11 @@ private:
 	class CHARACTER_MANAGER* CharacterManager;
 public:
 	class CHARACTER_MANAGER* characterManager() { return CharacterManager; }
-
+//スコア
+private:
+	class SCORE* Score;
+public:
+	class SCORE* score() { return Score; }
 //コンストラクタとか
 public:
 	GAME();

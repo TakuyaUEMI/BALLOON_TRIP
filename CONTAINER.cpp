@@ -18,6 +18,7 @@ void CONTAINER::setData() {
 	setMap();
 	setPlayer();
 	setBalloons();
+	setScore();
 }
 
 void CONTAINER::setTitle() {
@@ -72,6 +73,8 @@ void CONTAINER::setPlayer() {
 	D.player.fillColor = COLOR(100, 220, 230);
 	D.player.wide = 60;
 	D.player.high = 60;
+
+	D.player.collisionRadius = 30;
 }
 
 void CONTAINER::setBalloons() {
@@ -85,4 +88,21 @@ void CONTAINER::setBalloons() {
 	D.balloons.diameter = 60;
 	D.balloons.missFrag = 0;
 	D.balloons.collisionRadius = D.balloons.diameter / 2;
+}
+
+void CONTAINER::setScore(){
+	D.score.currentScore = 0;
+	D.score.currentIndex = 0;
+	const int totalIndex = 4;
+	D.score.totalIndex = totalIndex;
+	int scoreList[totalIndex] = { 100,200,400,800 };
+	int borderList[totalIndex] = { 0,10,20,30 };
+	for (int i = 0; i < totalIndex; i++) {
+		D.score.scoreList[i] = scoreList[i];
+		D.score.borderList[i] = borderList[i];
+	}
+	D.score.posit = VECTOR2(100, 100);
+	D.score.color = COLOR(255, 255, 255);
+	D.score.textSize = 100;
+	strcpy_s(D.score.str, "SCORE:");
 }

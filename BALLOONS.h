@@ -39,7 +39,12 @@ public:
     void appear(float wx, float wy);
     void update();
     void move();
+    void collision();
+    void miss();
     void draw();
-    void kill();
+    void kill(int i);
+    int consecutiveNum() { return AllBalloon.consecutiveNum; }
+    void setColor(COLOR c) { AllBalloon.fillColor = c; }
+
 };
 

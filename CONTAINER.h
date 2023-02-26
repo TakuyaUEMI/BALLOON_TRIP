@@ -6,6 +6,7 @@
 #include"BALLOONS.h"
 #include"MAP.h"
 #include"CHARACTER.h"
+#include"SCORE.h"
 class CONTAINER
 {
 private:
@@ -18,6 +19,7 @@ private:
 		CHARACTER::DATA playerCharacter;
 		BALLOONS::DATA balloons;
 		CHARACTER::DATA balloonsCharacter;
+		SCORE::DATA score;
 	};
 	DATA D;
 public:
@@ -31,6 +33,7 @@ public:
 			void setGameOver();
 			void setPlayer();
 			void setBalloons();
+			void setScore();
 		void loadGraphic();
 	const DATA& data() { return D; }
 };

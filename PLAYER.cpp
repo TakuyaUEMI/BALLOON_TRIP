@@ -62,7 +62,7 @@ void PLAYER::draw() {
 	fill(Player.fillColor);
 	rect(Player.posit.x, Player.posit.y, Player.wide, Player.high);
 	//debug
-	printSize(100);
-	print(Player.posit.x);
-	print(Player.posit.y);
+	//printSize(100);
+	//print(Player.posit.x);
+	//print(Player.posit.y);
 }

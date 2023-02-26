@@ -26,6 +26,8 @@ public:
         COLOR fillColor;
         float wide;
         float high;
+        //‚ ‚½‚è”»’è—p
+        float collisionRadius;
     };
 private:
     DATA Player;
@@ -37,7 +39,9 @@ public:
     void appear(float wx,float wy);
     void update();
         void move();
-        void calcDrawPosit();
     void draw();
+    VECTOR2 posit() { return Player.posit; }
+    float collosionRadius() { return Player.collisionRadius; }
+
 };
 

@@ -19,6 +19,7 @@ GAME::GAME() {
     Scenes[GAME_OVER_ID] = new GAME_OVER(this);
 
     CharacterManager = new CHARACTER_MANAGER(this);
+    Score = new SCORE(this);
 
 }
 
@@ -35,6 +36,7 @@ void GAME::run() {
     }
     CharacterManager->create();
     Map->create();
+    Score->create();
     CurSceneId = TITLE_ID;
     Scenes[CurSceneId]->init();
     initDeltaTime();
