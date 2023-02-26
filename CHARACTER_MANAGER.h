@@ -13,9 +13,10 @@ public:
     };
 private:
     DATA CM;
+    char c;
+    char d[4];
     class PLAYER* Player = nullptr;
     class BALLOONS* Balloons = nullptr;
-    class ENEMY** Enemy = nullptr;
     class CHARACTER** Chara = nullptr;
 
 public:
@@ -25,6 +26,7 @@ public:
     void init();
     void appear(char ID, float wx, float wy);
     void update();
+    void collision();
     void draw();
     PLAYER* player() { return Player; }
     BALLOONS* balloons() { return Balloons; }

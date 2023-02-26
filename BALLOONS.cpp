@@ -41,12 +41,10 @@ void BALLOONS::draw() {
 	for (int i = AllBalloon.currentNum - 1; i >= 0; i--) {
 		circle(Balloon[i].posit.x, Balloon[i].posit.y, AllBalloon.diameter);
 	}
-	textSize(100);
-	print(AllBalloon.consecutiveNum);
 }
 void BALLOONS::collision() {
 	PLAYER* player = game()->characterManager()->player();
-	float distance = player->collosionRadius() + AllBalloon.collisionRadius;
+	float distance = player->collisionRadius() + AllBalloon.collisionRadius;
 	float sqDistance = distance * distance;
 	for (int i = AllBalloon.currentNum - 1; i >= 0; i--) {
 		VECTOR2 vec = player->posit() - Balloon[i].posit;

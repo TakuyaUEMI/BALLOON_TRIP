@@ -12,7 +12,7 @@ void GAME_OVER::create() {
 	GameOver = game()->container()->data().gameOver;
 }
 void GAME_OVER::draw() {
-	clear(GameOver.backColor);
+	clear(128);
 }
 void GAME_OVER::nextScene() {
 

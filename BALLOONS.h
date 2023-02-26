@@ -34,14 +34,14 @@ private:
 public:
     BALLOONS(class GAME* game);
     ~BALLOONS();
-    void create();
-    void init();
-    void appear(float wx, float wy);
-    void update();
+    void create() override;
+    void init() override;
+    void appear(float wx, float wy) override;
+    void update() override;
     void move();
     void collision();
     void miss();
-    void draw();
+    void draw() override;
     void kill(int i);
     int consecutiveNum() { return AllBalloon.consecutiveNum; }
     void setColor(COLOR c) { AllBalloon.fillColor = c; }

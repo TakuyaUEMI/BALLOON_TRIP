@@ -32,16 +32,17 @@ public:
 private:
     DATA Player;
 public:
-    PLAYER(class GAME* game);
+    PLAYER(class GAME* game) :CHARACTER(game){}
     ~PLAYER();
-    void create();
-    void init();
-    void appear(float wx,float wy);
-    void update();
+    void create() override;
+    void init() override;
+    void appear(float wx,float wy) override;
+    void update() override;
         void move();
-    void draw();
-    VECTOR2 posit() { return Player.posit; }
-    float collosionRadius() { return Player.collisionRadius; }
-
+    void draw() override;
+    void damage();
+    //VECTOR2 posit() { return Character.posit; }
+    int hp() { return Player.hp; }
+    //float collisionRadius() { return Character.collisionRadius; };
 };
 

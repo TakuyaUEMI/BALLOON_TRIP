@@ -16,8 +16,8 @@ void FIXED_STAGE::init() {
 	game()->score()->init();
 }
 void FIXED_STAGE::update() {
-	game()->characterManager()->update();
 	game()->map()->update();
+	game()->characterManager()->update();
 	game()->score()->update();
 }
 void FIXED_STAGE::draw() {
@@ -27,5 +27,7 @@ void FIXED_STAGE::draw() {
 	game()->score()->draw();
 }
 void FIXED_STAGE::nextScene() {
-
+	if (game()->characterManager()->player()->hp() <= 0) {
+		game()->changeScene(GAME::GAME_OVER_ID);
+	}
 }

@@ -7,19 +7,24 @@ class CHARACTER :
 public:
     struct DATA {
         char characterID = 0;
-        VECTOR2 dispPosit;
+        VECTOR2 posit;
+        int active;
+        float collisionRadius;
     };
 protected:
     DATA Character;
 public:
     CHARACTER(class GAME* game);
     ~CHARACTER();
-    void create();
-    void init();
-    void appear(float wx,float wy);
-    void update();
-    void draw();
+    virtual void create();
+    virtual void init();
+    virtual void appear(float wx,float wy);
+    virtual void update();
+    virtual void draw();
     //getter
+    VECTOR2 posit() { return Character.posit; }
+    float collisionRadius() { return Character.collisionRadius; }
     char characterID() { return Character.characterID; }
+    virtual int active() { return Character.active; }
 };
 

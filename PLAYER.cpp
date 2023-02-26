@@ -2,25 +2,24 @@
 #include"libOne.h"
 #include"GAME.h"
 #include"CONTAINER.h"
-PLAYER::PLAYER(class GAME* game):
-	CHARACTER(game){
-}
 PLAYER::~PLAYER() {
 
 }
-void PLAYER::create() {
+void PLAYER::create(){
 	Player = game()->container()->data().player;
 	Character = game()->container()->data().playerCharacter;
+	
 }
 void PLAYER::init() {
 
 }
 void PLAYER::appear(float wx,float wy) {
-	Player.posit.x = wx - game()->map()->wx() + Player.wide / 2;
-	Player.posit.y = wy - game()->map()->wx() + Player.high / 2;
+	Character.posit.x = wx - game()->map()->wx() + Player.wide / 2;
+	Character.posit.y = wy - game()->map()->wx() + Player.high / 2;
 }
 void PLAYER::update() {
 	move();
+	Player.invicibleRestTime -= delta;
 }
 void PLAYER::move() {
 	if (Abs(Player.advSpeed.x) < Player.maxSpeed.x) {
@@ -38,31 +37,34 @@ void PLAYER::move() {
 		Player.advSpeed.y += Player.gravity * delta;
 	}
 	Player.advSpeed.x *= Player.reductionRatio;
-	Player.posit += Player.advSpeed;
-	if (Player.posit.x < Player.wide / 2) {
-		Player.posit.x = Player.wide / 2;
+	Character.posit += Player.advSpeed;
+	if (Character.posit.x < Player.wide / 2) {
+		Character.posit.x = Player.wide / 2;
 		Player.advSpeed.x = 0;
 	}
-	else if (Player.posit.x > width - Player.wide / 2) {
-		Player.posit.x = width - Player.wide / 2;
+	else if (Character.posit.x > width - Player.wide / 2) {
+		Character.posit.x = width - Player.wide / 2;
 		Player.advSpeed.x = 0;
 	}
-	if (Player.posit.y < Player.high / 2) {
-		Player.posit.y = Player.high / 2;
+	if (Character.posit.y < Player.high / 2) {
+		Character.posit.y = Player.high / 2;
 		Player.advSpeed.y = 0;
 	}
-	else if (Player.posit.y > height - Player.high / 2) {
-		Player.posit.y = height - Player.high / 2;
+	else if (Character.posit.y > height - Player.high / 2) {
+		Character.posit.y = height - Player.high / 2;
 		Player.advSpeed.y = 0;
 	}
 
 }
 void PLAYER::draw() {
 	rectMode(CENTER);
+	print(Player.hp);
 	fill(Player.fillColor);
-	rect(Player.posit.x, Player.posit.y, Player.wide, Player.high);
-	//debug
-	//printSize(100);
-	//print(Player.posit.x);
-	//print(Player.posit.y);
+	rect(Character.posit.x, Character.posit.y, Player.wide, Player.high);
+}
+void PLAYER::damage() {
+	if (Player.invicibleRestTime <= 0) {
+		Player.hp--;
+		Player.invicibleRestTime = Player.invicibleTime;
+	}
 }

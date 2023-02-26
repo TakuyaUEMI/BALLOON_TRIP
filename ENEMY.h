@@ -24,14 +24,15 @@ private:
 public:
     ENEMY(class GAME* game);
     ~ENEMY();
-    void create();
-    void init();
-    void appear(float wx, float wy);
-    void update();
+    void create() override;
+    void init() override;
+    void appear(float wx, float wy) override;
+    void update() override;
     void move();
-    void draw();
+    void draw() override;
     VECTOR2 posit() { return Enemy.posit; }
     float collosionRadius() { return Enemy.collisionRadius; }
+    int active() override{ return Character.active; }
 };
 
 

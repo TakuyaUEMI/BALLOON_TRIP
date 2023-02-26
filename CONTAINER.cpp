@@ -54,6 +54,8 @@ void CONTAINER::setGameOver() {
 }
 void CONTAINER::setCharaManager() {
 	D.charaManager.numEnemies = 100;
+	D.charaManager.numPlayer = 1;
+	D.charaManager.numBalloon = 1;
 }
 
 void CONTAINER::loadGraphic() {
@@ -61,7 +63,7 @@ void CONTAINER::loadGraphic() {
 }
 void CONTAINER::setPlayer() {
 	D.playerCharacter.characterID = MAP::PLAYER_ID;
-
+	D.playerCharacter.active = 0;
 	D.player.posit = VECTOR2(120, height);
 	D.player.advSpeed = VECTOR2(0, 0);
 	D.player.accel = VECTOR2(10, 20);
@@ -70,8 +72,8 @@ void CONTAINER::setPlayer() {
 	D.player.reductionRatio = 0.99f;
 	D.player.gravity = 6.0f;
 
-	D.player.hp = 5;
-	D.player.initHp = 5;
+	D.player.hp = 1;
+	D.player.initHp = 1;
 	D.player.invicibleTime = 1.0f;
 	D.player.invicibleRestTime = 0;
 
@@ -79,12 +81,12 @@ void CONTAINER::setPlayer() {
 	D.player.wide = 60;
 	D.player.high = 60;
 
-	D.player.collisionRadius = 30;
+	D.playerCharacter.collisionRadius = 30;
 }
 
 void CONTAINER::setBalloons() {
 	D.balloonsCharacter.characterID = MAP::BALLOON_ID;
-
+	D.balloonsCharacter.active = 0;
 	D.balloons.totalNum = 100;
 	D.balloons.currentNum = 0;
 	D.balloons.consecutiveNum = 0;
@@ -96,14 +98,15 @@ void CONTAINER::setBalloons() {
 }
 void CONTAINER::setEnemy() {
 	D.enemyCharacter.characterID = MAP::ENEMY_ID;
+	D.enemyCharacter.active = 0;
 	D.enemy.posit = VECTOR2(0, 0);
 	D.enemy.advSpeed = VECTOR2(0, 0);
-	D.enemy.angleSpeed = 180;
+	D.enemy.angleSpeed = 1;
 	D.enemy.fillColor = COLOR(255, 255, 255);
 	D.enemy.wide = 60;
 	D.enemy.high = 60;
 	D.enemy.angle = 45;
-	D.enemy.collisionRadius = 25;
+	D.enemyCharacter.collisionRadius = 25;
 }
 
 void CONTAINER::setScore(){

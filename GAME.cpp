@@ -24,11 +24,17 @@ GAME::GAME() {
 }
 
 GAME::~GAME() {
+    delete Score;
+    delete CharacterManager;
+    delete Map;
+    for (int i = 0; i < NUM_SCENES; i++) {
+        delete Scenes[i];
+    }
     delete Container;
 }
 
 void GAME::run() {
-	window(1920, 1080, full);
+	window(1920, 1080,full);
 	hideCursor();
     Container->load();
     for (int i = 0; i < NUM_SCENES; i++) {
