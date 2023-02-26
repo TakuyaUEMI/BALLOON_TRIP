@@ -139,6 +139,7 @@
     <ClCompile Include="CHARACTER.cpp" />
     <ClCompile Include="CHARACTER_MANAGER.cpp" />
     <ClCompile Include="CONTAINER.cpp" />
+    <ClCompile Include="ENEMY.cpp" />
     <ClCompile Include="FIXED_STAGE.cpp" />
     <ClCompile Include="GAME.cpp" />
     <ClCompile Include="GAME_CLEAR.cpp" />
@@ -165,6 +166,7 @@
     <ClInclude Include="CHARACTER.h" />
     <ClInclude Include="CHARACTER_MANAGER.h" />
     <ClInclude Include="CONTAINER.h" />
+    <ClInclude Include="ENEMY.h" />
     <ClInclude Include="FIXED_STAGE.h" />
     <ClInclude Include="GAME.h" />
     <ClInclude Include="GAME_CLEAR.h" />

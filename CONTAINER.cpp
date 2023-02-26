@@ -19,6 +19,8 @@ void CONTAINER::setData() {
 	setPlayer();
 	setBalloons();
 	setScore();
+	setEnemy();
+	setCharaManager();
 }
 
 void CONTAINER::setTitle() {
@@ -49,6 +51,9 @@ void CONTAINER::setGameClear() {
 }
 void CONTAINER::setGameOver() {
 
+}
+void CONTAINER::setCharaManager() {
+	D.charaManager.numEnemies = 100;
 }
 
 void CONTAINER::loadGraphic() {
@@ -88,6 +93,17 @@ void CONTAINER::setBalloons() {
 	D.balloons.diameter = 60;
 	D.balloons.missFrag = 0;
 	D.balloons.collisionRadius = D.balloons.diameter / 2;
+}
+void CONTAINER::setEnemy() {
+	D.enemyCharacter.characterID = MAP::ENEMY_ID;
+	D.enemy.posit = VECTOR2(0, 0);
+	D.enemy.advSpeed = VECTOR2(0, 0);
+	D.enemy.angleSpeed = 180;
+	D.enemy.fillColor = COLOR(255, 255, 255);
+	D.enemy.wide = 60;
+	D.enemy.high = 60;
+	D.enemy.angle = 45;
+	D.enemy.collisionRadius = 25;
 }
 
 void CONTAINER::setScore(){

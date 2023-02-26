@@ -16,7 +16,7 @@ public:
     ~CHARACTER();
     void create();
     void init();
-    void appear();
+    void appear(float wx,float wy);
     void update();
     void draw();
     //getter

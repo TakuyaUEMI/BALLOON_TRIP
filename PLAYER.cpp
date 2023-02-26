@@ -16,8 +16,8 @@ void PLAYER::init() {
 
 }
 void PLAYER::appear(float wx,float wy) {
-	Player.posit.x = wx;
-	Player.posit.y = wy;
+	Player.posit.x = wx - game()->map()->wx() + Player.wide / 2;
+	Player.posit.y = wy - game()->map()->wx() + Player.high / 2;
 }
 void PLAYER::update() {
 	move();

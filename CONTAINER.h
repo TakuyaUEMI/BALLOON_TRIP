@@ -6,7 +6,9 @@
 #include"BALLOONS.h"
 #include"MAP.h"
 #include"CHARACTER.h"
+#include"ENEMY.h"
 #include"SCORE.h"
+#include"CHARACTER_MANAGER.h"
 class CONTAINER
 {
 private:
@@ -15,11 +17,14 @@ private:
 		MAP::DATA map;
 		GAME_CLEAR::DATA gameClear;
 		GAME_OVER::DATA gameOver;
+		CHARACTER_MANAGER::DATA charaManager;
 		PLAYER::DATA player;
 		CHARACTER::DATA playerCharacter;
 		BALLOONS::DATA balloons;
 		CHARACTER::DATA balloonsCharacter;
 		SCORE::DATA score;
+		ENEMY::DATA enemy;
+		CHARACTER::DATA enemyCharacter;
 	};
 	DATA D;
 public:
@@ -31,8 +36,10 @@ public:
 			void setMap();
 			void setGameClear();
 			void setGameOver();
+			void setCharaManager();
 			void setPlayer();
 			void setBalloons();
+			void setEnemy();
 			void setScore();
 		void loadGraphic();
 	const DATA& data() { return D; }
