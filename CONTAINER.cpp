@@ -49,10 +49,10 @@ void CONTAINER::setFixedStage() {
 void CONTAINER::setMap() {
 	D.map.fileName = "stage.txt";
 	D.map.chipSize = 60;
-	D.map.scrollSpeed = 120;
+	D.map.scrollSpeed = 135;
 
-	D.map.randBalloon = 16;//0～19で調整、大きいと確率が下がる
-	D.map.randEnemy = 4;
+	D.map.randBalloon = 10;//0～19で調整、大きいと確率が下がる
+	D.map.randEnemy = 5;
 	D.map.maxEnemySpeedX = 40;
 	D.map.maxEnemySpeedY = 80;
 
@@ -88,8 +88,8 @@ void CONTAINER::setPlayer() {
 	D.playerCharacter.active = 0;
 	D.player.posit = VECTOR2(120, height);
 	D.player.advSpeed = VECTOR2(0, 0);
-	D.player.accel = VECTOR2(700, 920);
-	D.player.maxSpeed = VECTOR2(550, 750);
+	D.player.accel = VECTOR2(650, 940);
+	D.player.maxSpeed = VECTOR2(500, 800);
 	D.player.reductionRate = (30, 30);
 	D.player.reductionRatio = 0.99f;
 	D.player.gravity = 400;
@@ -103,7 +103,7 @@ void CONTAINER::setPlayer() {
 	D.player.wide = 60;
 	D.player.high = 60;
 
-	D.playerCharacter.collisionRadius = 30;
+	D.playerCharacter.collisionRadius = 28;
 }
 
 void CONTAINER::setBalloons() {
@@ -116,7 +116,7 @@ void CONTAINER::setBalloons() {
 	D.balloons.fillColor = COLOR(150, 240, 10);
 	D.balloons.diameter = 60;
 	D.balloons.missFrag = 0;
-	D.balloons.collisionRadius = D.balloons.diameter / 2 + 10;
+	D.balloons.collisionRadius = D.balloons.diameter / 2 + 14;
 }
 void CONTAINER::setEnemy() {
 	D.enemyCharacter.characterID = MAP::ENEMY_ID;
@@ -125,10 +125,10 @@ void CONTAINER::setEnemy() {
 	D.enemy.advSpeed = VECTOR2(0, 0);
 	D.enemy.angleSpeed = 1;
 	D.enemy.fillColor = COLOR(255, 255, 255);
-	D.enemy.wide = 60;
-	D.enemy.high = 60;
+	D.enemy.wide = 45;
+	D.enemy.high = 45;
 	D.enemy.angle = 45;
-	D.enemyCharacter.collisionRadius = 20;
+	D.enemyCharacter.collisionRadius = 18;
 }
 
 void CONTAINER::setScore(){
@@ -137,7 +137,7 @@ void CONTAINER::setScore(){
 	const int totalIndex = 4;
 	D.score.totalIndex = totalIndex;
 	int scoreList[totalIndex] = { 100,200,400,800 };
-	int borderList[totalIndex] = { 0,10,20,30 };
+	int borderList[totalIndex] = { 0,20,50,100 };
 	COLOR fillColor[totalIndex] = { COLOR(150,240,10),COLOR(240,150,10),COLOR(240,35,10),COLOR(240,20,220)};
 	for (int i = 0; i < totalIndex; i++) {
 		D.score.scoreList[i] = scoreList[i];
