@@ -13,7 +13,7 @@ void CHARACTER::create() {
 void CHARACTER::init() {
 
 }
-void CHARACTER::appear(float wx,float wy) {
+void CHARACTER::appear(float wx,float wy,VECTOR2 vec) {
 
 }
 void CHARACTER::update() {

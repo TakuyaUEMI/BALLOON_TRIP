@@ -18,7 +18,7 @@ public:
     ~CHARACTER();
     virtual void create();
     virtual void init();
-    virtual void appear(float wx,float wy);
+    virtual void appear(float wx,float wy,VECTOR2 vec);
     virtual void update();
     virtual void draw();
     //getter

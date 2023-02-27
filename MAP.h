@@ -1,5 +1,6 @@
 #pragma once
 #include "GAME_OBJECT.h"
+#include"VECTOR2.h"
 class MAP :
     public GAME_OBJECT
 {
@@ -20,6 +21,13 @@ public:
         float endWorldX = 0;
         float endWorldY = 0;
         float centerX = 0;
+        int mapEndFrag = 0;
+
+        int randBalloon;
+        int randEnemy;
+        float maxEnemySpeedX;
+        float maxEnemySpeedY;
+        float advDistance = 0;
     };
     enum CHARA_ID {
         PLAYER_ID = 'p',
@@ -35,6 +43,10 @@ public:
     void init();
     void update();
     void draw();
+    void drawDefined();
+    void drawAuto();
+    void checkMapEnd();
+    int randomObject(int r);
     float wx() { return Map.wx; }
     float wy() { return Map.wy; }
     int chipSize() { return Map.chipSize; }

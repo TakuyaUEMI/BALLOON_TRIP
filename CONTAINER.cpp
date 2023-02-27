@@ -44,7 +44,13 @@ void CONTAINER::setTitle() {
 void CONTAINER::setMap() {
 	D.map.fileName = "stage.txt";
 	D.map.chipSize = 60;
-	D.map.scrollSpeed = 60;
+	D.map.scrollSpeed = 180;
+
+	D.map.randBalloon = 2;
+	D.map.randEnemy = 2;
+	D.map.maxEnemySpeedX = 20;
+	D.map.maxEnemySpeedY = 20;
+
 }
 void CONTAINER::setGameClear() {
 

@@ -3,6 +3,7 @@
 #include"CONTAINER.h"
 #include"libOne.h"
 #include"CHARACTER_MANAGER.h"
+char str[4];
 MAP::MAP(class GAME* game) :
     GAME_OBJECT(game) {
 }
@@ -59,8 +60,18 @@ void MAP::init() {
 }
 void MAP::update() {
     Map.wx += Map.scrollSpeed * delta;
+    checkMapEnd();
 }
 void MAP::draw() {
+    print(str);
+    if (Map.mapEndFrag == 0) {
+        drawDefined();
+    }
+    else {
+        drawAuto();
+    }
+}
+void MAP::drawDefined() {
     int startCol = (int)Map.wx / Map.chipSize;//表示開始列
     int endCol = startCol + Map.dispCols;//表示終了列
     for (int c = startCol; c < endCol; c++) {
@@ -70,10 +81,54 @@ void MAP::draw() {
             float wy = (float)Map.chipSize * r;
             char charaId = Map.data[r * Map.cols + c];
             if (charaId >= 'a' && charaId <= 'z') {
-                game()->characterManager()->appear(charaId, wx, wy);
+                game()->characterManager()->appear(charaId, wx-Map.wx, wy-Map.wy, 0);
                 //game()->characterManager()->appear(charaId, wx - Map.wx, wy - Map.wy);
                 Map.data[r * Map.cols + c] = '.';
             }
         }
     }
 }
+void MAP::drawAuto() {
+    Map.advDistance += Map.scrollSpeed * delta;
+    if (Map.advDistance > Map.chipSize) {
+        Map.advDistance = 0;
+        float wx = width + Map.chipSize;
+        int bal = randomObject(Map.randBalloon);
+        if (randomObject(Map.randBalloon) == 0) bal = 0;
+        int enemy = randomObject(Map.randEnemy);
+        int i = 0;
+        int frag = 1;
+        VECTOR2 vec = VECTOR2(0, 0);
+        char id = BALLOON_ID;
+        float* wy = new float[bal + enemy];
+        while (i < bal + enemy) {
+            float tempWy = randomObject(height - Map.chipSize / 2) - Map.chipSize / 2;
+            for (int j = 0; j < i; j++) {
+                if (tempWy< wy[j] - Map.chipSize || tempWy > wy[j] + Map.chipSize) {
+                    frag = 1;
+                }
+            }
+            if (frag == 1) {
+                wy[i] = tempWy;
+                frag = 0;
+                if (i < bal) id = BALLOON_ID;
+                else if (i < enemy) {
+                    id = ENEMY_ID;
+                    vec = VECTOR2(randomObject(Map.maxEnemySpeedX) - Map.maxEnemySpeedX / 2,
+                        randomObject(Map.maxEnemySpeedY) - Map.maxEnemySpeedY / 2);
+                }
+                game()->characterManager()->appear(id, wx, tempWy, vec);
+                i++;
+            }
+        }
+    }
+}
+void MAP::checkMapEnd() {
+    if ((int)Map.wx / Map.chipSize + Map.dispCols >= Map.cols) {
+        Map.mapEndFrag = 1;
+    }
+}
+int MAP::randomObject(int r) {
+    return random() % r;
+}
+

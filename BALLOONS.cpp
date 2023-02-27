@@ -19,9 +19,9 @@ void BALLOONS::create() {
 void BALLOONS::init() {
 	AllBalloon.currentNum = 0;
 }
-void BALLOONS::appear(float wx, float wy) {
-	Balloon[AllBalloon.currentNum].posit.x = wx - game()->map()->wx() + AllBalloon.diameter / 2;
-	Balloon[AllBalloon.currentNum].posit.y = wy - game()->map()->wy() + AllBalloon.diameter / 2;
+void BALLOONS::appear(float wx, float wy,VECTOR2 vec) {
+	Balloon[AllBalloon.currentNum].posit.x = wx + AllBalloon.diameter / 2;
+	Balloon[AllBalloon.currentNum].posit.y = wy + AllBalloon.diameter / 2;
 	AllBalloon.currentNum++;
 	
 }

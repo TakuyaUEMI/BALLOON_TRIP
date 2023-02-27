@@ -1,5 +1,6 @@
 #pragma once
 #include "GAME_OBJECT.h"
+#include"VECTOR2.h"
 class CHARACTER_MANAGER :
     public GAME_OBJECT
 {
@@ -24,7 +25,7 @@ public:
     ~CHARACTER_MANAGER();
     void create();
     void init();
-    void appear(char ID, float wx, float wy);
+    void appear(char ID, float wx, float wy, VECTOR2 vec);
     void update();
     void collision();
     void draw();

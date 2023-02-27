@@ -35,17 +35,18 @@ void CHARACTER_MANAGER::init() {
 		Chara[i]->init();	
 	}
 }
-void CHARACTER_MANAGER::appear(char ID, float wx, float wy) {
-	for (int i = 0; i < CM.total ; i++) {	
+void CHARACTER_MANAGER::appear(char ID, float wx, float wy, VECTOR2 vec)
+{
+	for (int i = 0; i < CM.total; i++) {
 		if (Chara[i]->characterID() == ID) {
-			if (Chara[i]->active() == 0 ) {
-				Chara[i]->appear(wx, wy);
+			if (Chara[i]->active() == 0) {
+				Chara[i]->appear(wx, wy, vec);
 				break;
 			}
 		}
 	}
-	//if (ID == Chara[0]->characterID()) Chara[0]->appear(wx, wy); 
 }
+
 void CHARACTER_MANAGER::update() {
 	for (int i = 0; i < CM.total; i++) {
 		Chara[i]->update();

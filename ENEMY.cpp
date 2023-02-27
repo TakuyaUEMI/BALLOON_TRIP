@@ -15,16 +15,17 @@ void ENEMY::create() {
 void ENEMY::init() {
 
 }
-void ENEMY::appear(float wx, float wy) {
-	Character.posit.x = wx - game()->map()->wx() + Enemy.wide / 2;
-	Character.posit.y = wy - game()->map()->wx() + Enemy.high / 2;
+void ENEMY::appear(float wx, float wy,VECTOR2 vec) {
+	Character.posit.x = wx + Enemy.wide / 2;
+	Character.posit.y = wy + Enemy.high / 2;
 	Character.active = 1;
+	Enemy.advSpeed = vec;
 }
 void ENEMY::update() {
 	move();
 }
 void ENEMY::move() {
-	Character.posit += Enemy.advSpeed;
+	Character.posit += Enemy.advSpeed * delta;
 	Enemy.angle += Enemy.angleSpeed * delta;
 	Character.posit.x -= game()->map()->scrollSpeed()*delta;
 	if (Character.posit.x < -Enemy.wide) Character.active = 0;

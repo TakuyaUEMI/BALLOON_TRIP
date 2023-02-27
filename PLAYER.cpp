@@ -13,7 +13,7 @@ void PLAYER::create(){
 void PLAYER::init() {
 
 }
-void PLAYER::appear(float wx,float wy) {
+void PLAYER::appear(float wx,float wy,VECTOR2 vec) {
 	Character.posit.x = wx - game()->map()->wx() + Player.wide / 2;
 	Character.posit.y = wy - game()->map()->wx() + Player.high / 2;
 }

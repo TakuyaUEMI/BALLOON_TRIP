@@ -36,7 +36,7 @@ public:
     ~BALLOONS();
     void create() override;
     void init() override;
-    void appear(float wx, float wy) override;
+    void appear(float wx, float wy,VECTOR2 vec) override;
     void update() override;
     void move();
     void collision();
