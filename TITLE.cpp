@@ -21,6 +21,7 @@ void TITLE::draw() {
 	fill(Title.manualTextColor);
 	textSize(Title.manualTextSize);
 	text(Title.manualStr, Title.manualPosit.x, Title.manualPosit.y);
+
 	fill(Title.startTextColor);
 	textSize(Title.startTextSize);
 	text(Title.startStr, Title.startPosit.x, Title.startPosit.y);

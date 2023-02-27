@@ -3,7 +3,6 @@
 #include"CONTAINER.h"
 #include"libOne.h"
 #include"CHARACTER_MANAGER.h"
-char str[4];
 MAP::MAP(class GAME* game) :
     GAME_OBJECT(game) {
 }
@@ -14,6 +13,7 @@ void MAP::create() {
     Map = game()->container()->data().map;
 }
 void MAP::init() {
+    Map.mapEndFrag = 0;
     //ファイルを開く
     FILE* fp;
     fopen_s(&fp, Map.fileName, "rb");
@@ -63,7 +63,6 @@ void MAP::update() {
     checkMapEnd();
 }
 void MAP::draw() {
-    print(str);
     if (Map.mapEndFrag == 0) {
         drawDefined();
     }
@@ -90,11 +89,11 @@ void MAP::drawDefined() {
 }
 void MAP::drawAuto() {
     Map.advDistance += Map.scrollSpeed * delta;
-    if (Map.advDistance > Map.chipSize) {
+    if (Map.advDistance > Map.chipSize*2) {
         Map.advDistance = 0;
         float wx = width + Map.chipSize;
-        int bal = randomObject(Map.randBalloon);
-        if (randomObject(Map.randBalloon) == 0) bal = 0;
+        int bal = 0; 
+        if (randomObject(20) >= Map.randBalloon) bal = 1;
         int enemy = randomObject(Map.randEnemy);
         int i = 0;
         int frag = 1;
@@ -111,8 +110,10 @@ void MAP::drawAuto() {
             if (frag == 1) {
                 wy[i] = tempWy;
                 frag = 0;
-                if (i < bal) id = BALLOON_ID;
-                else if (i < enemy) {
+                if (i < bal) {
+                    id = BALLOON_ID;
+                }
+                else{
                     id = ENEMY_ID;
                     vec = VECTOR2(randomObject(Map.maxEnemySpeedX) - Map.maxEnemySpeedX / 2,
                         randomObject(Map.maxEnemySpeedY) - Map.maxEnemySpeedY / 2);
@@ -121,6 +122,7 @@ void MAP::drawAuto() {
                 i++;
             }
         }
+    delete[] wy;
     }
 }
 void MAP::checkMapEnd() {

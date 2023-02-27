@@ -14,6 +14,7 @@ public:
         int borderList[10];
         VECTOR2 posit;
         COLOR color;
+        COLOR fillColor[10];
         float textSize;
         char str[20];
     };

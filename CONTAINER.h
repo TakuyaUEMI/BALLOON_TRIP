@@ -1,5 +1,6 @@
 #pragma once
 #include"TITLE.h"
+#include"FIXED_STAGE.h"
 #include"GAME_CLEAR.h"
 #include"GAME_OVER.h"
 #include"PLAYER.h"
@@ -14,6 +15,7 @@ class CONTAINER
 private:
 	struct DATA {
 		TITLE::DATA title;
+		FIXED_STAGE::DATA fs;
 		MAP::DATA map;
 		GAME_CLEAR::DATA gameClear;
 		GAME_OVER::DATA gameOver;
@@ -33,6 +35,7 @@ public:
 	void load();
 		void setData();
 			void setTitle();
+			void setFixedStage();
 			void setMap();
 			void setGameClear();
 			void setGameOver();

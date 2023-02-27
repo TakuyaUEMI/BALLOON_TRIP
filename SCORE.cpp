@@ -26,6 +26,7 @@ void SCORE::changeAddScore() {
 	for (int i = 0; i < Score.totalIndex; i++) {
 		if (game()->characterManager()->balloons()->consecutiveNum() >= Score.borderList[i]){
 			Score.currentIndex = i;
+			game()->characterManager()->balloons()->setColor(Score.fillColor[i]);
 		}
 	}
 }

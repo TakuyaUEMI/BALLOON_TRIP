@@ -61,11 +61,13 @@
     <ClCompile Include="MAP.cpp">
       <Filter>map</Filter>
     </ClCompile>
-    <ClCompile Include="SCORE.cpp" />
     <ClCompile Include="BALLOONS.cpp">
       <Filter>character</Filter>
     </ClCompile>
-    <ClCompile Include="ENEMY.cpp" />
+    <ClCompile Include="ENEMY.cpp">
+      <Filter>character</Filter>
+    </ClCompile>
+    <ClCompile Include="SCORE.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resource.rc">
@@ -112,10 +114,12 @@
     <ClInclude Include="MAP.h">
       <Filter>map</Filter>
     </ClInclude>
-    <ClInclude Include="SCORE.h" />
     <ClInclude Include="BALLOONS.h">
       <Filter>character</Filter>
     </ClInclude>
-    <ClInclude Include="ENEMY.h" />
+    <ClInclude Include="ENEMY.h">
+      <Filter>character</Filter>
+    </ClInclude>
+    <ClInclude Include="SCORE.h" />
   </ItemGroup>
 </Project>

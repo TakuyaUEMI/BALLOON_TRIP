@@ -13,7 +13,8 @@ void ENEMY::create() {
 	Character = game()->container()->data().enemyCharacter;
 }
 void ENEMY::init() {
-
+	Character.active = 0;
+	Character.posit = VECTOR2(-100, -100);
 }
 void ENEMY::appear(float wx, float wy,VECTOR2 vec) {
 	Character.posit.x = wx + Enemy.wide / 2;

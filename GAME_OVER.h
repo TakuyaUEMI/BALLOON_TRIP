@@ -19,6 +19,8 @@ public:
         float continueTextSize;
         VECTOR2 continueTextPosit;
         char continueStr[100];
+        char continueStr2[100];
+
     };
 private:
     DATA GameOver;

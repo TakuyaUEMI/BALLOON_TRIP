@@ -18,6 +18,8 @@ void BALLOONS::create() {
 }
 void BALLOONS::init() {
 	AllBalloon.currentNum = 0;
+	AllBalloon.consecutiveNum = 0;
+
 }
 void BALLOONS::appear(float wx, float wy,VECTOR2 vec) {
 	Balloon[AllBalloon.currentNum].posit.x = wx + AllBalloon.diameter / 2;

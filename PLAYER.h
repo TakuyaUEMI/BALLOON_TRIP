@@ -31,6 +31,7 @@ public:
     };
 private:
     DATA Player;
+    int flyFrag = 0;
 public:
     PLAYER(class GAME* game) :CHARACTER(game){}
     ~PLAYER();
