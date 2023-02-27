@@ -88,11 +88,11 @@ void CONTAINER::setPlayer() {
 	D.playerCharacter.active = 0;
 	D.player.posit = VECTOR2(120, height);
 	D.player.advSpeed = VECTOR2(0, 0);
-	D.player.accel = VECTOR2(650, 940);
+	D.player.accel = VECTOR2(650, 1000);
 	D.player.maxSpeed = VECTOR2(500, 800);
 	D.player.reductionRate = (30, 30);
 	D.player.reductionRatio = 0.99f;
-	D.player.gravity = 400;
+	D.player.gravity = 370;
 
 	D.player.hp = 1;
 	D.player.initHp = 1;

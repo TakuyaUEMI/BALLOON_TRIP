@@ -28,6 +28,7 @@ void PLAYER::update() {
 	if (Character.posit.y >= height + Player.high / 2) Player.hp = 0;
 }
 void PLAYER::move() {
+	Character.posit += Player.advSpeed * delta;
 	if (Abs(Player.advSpeed.x) < Player.maxSpeed.x) {
 		if (isPress(KEY_A)) {
 			Player.advSpeed.x -= Player.accel.x * delta;
@@ -44,7 +45,6 @@ void PLAYER::move() {
 		Player.advSpeed.y += Player.gravity * delta;
 	}
 	Player.advSpeed.x *= Player.reductionRatio;
-	Character.posit += Player.advSpeed * delta;
 	if (Character.posit.x < Player.wide / 2) {
 		Character.posit.x = Player.wide / 2;
 		Player.advSpeed.x = 0;
