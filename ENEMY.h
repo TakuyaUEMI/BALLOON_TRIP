@@ -30,6 +30,7 @@ public:
     void update() override;
     void move();
     void draw() override;
+    //getter
     VECTOR2 posit() { return Enemy.posit; }
     float collosionRadius() { return Enemy.collisionRadius; }
     int active() override{ return Character.active; }

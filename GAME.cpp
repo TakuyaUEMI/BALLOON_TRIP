@@ -33,6 +33,7 @@ GAME::~GAME() {
     delete Container;
 }
 
+//ÉQÅ[ÉÄÇÃé¿çs
 void GAME::run() {
 	window(1920, 1080,full);
 	hideCursor();

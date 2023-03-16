@@ -59,10 +59,14 @@ void MAP::init() {
     Map.wx = 0.0f;//現在表示しているワールド座標
 }
 void MAP::update() {
+    //強制スクロールさせる
     Map.wx += Map.scrollSpeed * delta;
+    //固定マップの終わりを確認する
     checkMapEnd();
 }
 void MAP::draw() {
+    //固定マップが終わったかどうかでマップ生成方法が変わる
+    //固定マップが終わったら自動生成
     if (Map.mapEndFrag == 0) {
         drawDefined();
     }
@@ -75,37 +79,38 @@ void MAP::drawDefined() {
     int endCol = startCol + Map.dispCols;//表示終了列
     for (int c = startCol; c < endCol; c++) {
         
-        float wx = (float)Map.chipSize * c;
+        float wx = (float)Map.chipSize * c;//キャラクターを表示するワールドX座標
         for (int r = 0; r < Map.rows; r++) {
-            float wy = (float)Map.chipSize * r;
+            float wy = (float)Map.chipSize * r;//キャラクターを表示するワールドY座標
             char charaId = Map.data[r * Map.cols + c];
+            //キャラクターIDが得られたならば、それを表示する
             if (charaId >= 'a' && charaId <= 'z') {
                 game()->characterManager()->appear(charaId, wx-Map.wx, wy-Map.wy, 0);
-                //game()->characterManager()->appear(charaId, wx - Map.wx, wy - Map.wy);
-                Map.data[r * Map.cols + c] = '.';
+                Map.data[r * Map.cols + c] = '.';//２度読み防止
             }
         }
     }
 }
 void MAP::drawAuto() {
-    Map.advDistance += Map.scrollSpeed * delta;
+    Map.advDistance += Map.scrollSpeed * delta;//マップが進んだ距離
+    //マップが進んだら
     if (Map.advDistance > Map.chipSize*2) {
         Map.advDistance = 0;
-        float wx = width + Map.chipSize;
+        float wx = width + Map.chipSize;//キャラクターを表示するワールドX座標
         int bal = 0; 
-        if (randomInt(20) >= Map.randBalloon) bal = 1;
-        int enemy = randomInt(Map.randEnemy);
+        if (randomInt(20) >= Map.randBalloon) bal = 1;//バルーンを生成するか
+        int enemy = randomInt(Map.randEnemy);//敵の数
         int i = 0;
-        int frag = 1;
+        int frag = 1;//生成位置が重なっていないことのフラグ
         VECTOR2 vec = VECTOR2(0, 0);
         char id = BALLOON_ID;
-        float* wy = new float[bal + enemy];
+        float* wy = new float[bal + enemy];//生成位置を格納する配列
         while (i < bal + enemy) {
             float tempWy = randomInt(height - Map.chipSize) + Map.chipSize / 2;
             frag = 1;
             for (int j = 0; j < i; j++) {
                 if (tempWy > wy[j] - Map.chipSize && tempWy < wy[j] + Map.chipSize * 2) {
-                    frag = 0;
+                    frag = 0;//重なったらダメよん
                 }
             }
             if (frag == 1) {
@@ -116,7 +121,7 @@ void MAP::drawAuto() {
                 }
                 else{
                     id = ENEMY_ID;
-                    //vec = VECTOR2(0, 0);
+                    //速度を決めて
                     vec = VECTOR2(randomInt(Map.maxEnemySpeedX) - Map.maxEnemySpeedX / 2,
                        randomInt(Map.maxEnemySpeedY) - Map.maxEnemySpeedY / 2);
                 }

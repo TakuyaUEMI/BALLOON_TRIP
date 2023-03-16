@@ -13,6 +13,7 @@
 class CONTAINER
 {
 private:
+	//データは全てここに集まる
 	struct DATA {
 		TITLE::DATA title;
 		FIXED_STAGE::DATA fs;
@@ -45,6 +46,7 @@ public:
 			void setEnemy();
 			void setScore();
 		void loadGraphic();
+	//getter
 	const DATA& data() { return D; }
 };
 

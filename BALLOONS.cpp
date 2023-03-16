@@ -22,9 +22,10 @@ void BALLOONS::init() {
 
 }
 void BALLOONS::appear(float wx, float wy,VECTOR2 vec) {
+	//現在のバルーン番号に従って、生成される
 	Balloon[AllBalloon.currentNum].posit.x = wx + AllBalloon.diameter / 2;
 	Balloon[AllBalloon.currentNum].posit.y = wy + AllBalloon.diameter / 2;
-	AllBalloon.currentNum++;
+	AllBalloon.currentNum++;//１個増やす
 	
 }
 void BALLOONS::update() {
@@ -45,6 +46,7 @@ void BALLOONS::draw() {
 	}
 }
 void BALLOONS::collision() {
+	//プレイヤーと当たっているかどうか
 	PLAYER* player = game()->characterManager()->player();
 	float distance = player->collisionRadius() + AllBalloon.collisionRadius;
 	float sqDistance = distance * distance;
@@ -52,7 +54,7 @@ void BALLOONS::collision() {
 		VECTOR2 vec = player->posit() - Balloon[i].posit;
 		if (sqLength(vec) < sqDistance) {
 			kill(i);
-			AllBalloon.consecutiveNum++;
+			AllBalloon.consecutiveNum++;//連続獲得数を増やす
 			game()->score()->addScore();
 		}
 	}
@@ -61,7 +63,7 @@ void BALLOONS::miss() {
 	for (int i = AllBalloon.currentNum - 1; i >= 0; i--) {
 		if (Balloon[i].posit.x < -AllBalloon.diameter / 2) {
 			kill(i);
-			AllBalloon.consecutiveNum = 0;
+			AllBalloon.consecutiveNum = 0;//連続獲得数をリセット
 		}
 	}
 }

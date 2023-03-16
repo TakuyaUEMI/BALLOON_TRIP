@@ -22,7 +22,6 @@ void CHARACTER_MANAGER::create() {
 	Balloons = new BALLOONS(game());
 	Chara = new CHARACTER*[CM.total];
 	int i = 0, j = 0;
-	//Chara[0] = new PLAYER(game());
 	for (i = 0; i < CM.numPlayer; i++)	Chara[j++] = Player;
 	for (i = 0; i < CM.numBalloon; i++)	Chara[j++] = Balloons;
 	for (i = 0; i < CM.numEnemies; i++)	Chara[j++] = new ENEMY(game());
@@ -35,8 +34,8 @@ void CHARACTER_MANAGER::init() {
 		Chara[i]->init();	
 	}
 }
-void CHARACTER_MANAGER::appear(char ID, float wx, float wy, VECTOR2 vec)
-{
+void CHARACTER_MANAGER::appear(char ID, float wx, float wy, VECTOR2 vec){
+	//キャラクターIDに対応したキャラクターを出現させる
 	for (int i = 0; i < CM.total; i++) {
 		if (Chara[i]->characterID() == ID) {
 			if (Chara[i]->active() == 0) {
@@ -46,15 +45,14 @@ void CHARACTER_MANAGER::appear(char ID, float wx, float wy, VECTOR2 vec)
 		}
 	}
 }
-
 void CHARACTER_MANAGER::update() {
 	for (int i = 0; i < CM.total; i++) {
 		Chara[i]->update();
 	}
 	collision();
-	//Chara[0]->update();
 }
 void CHARACTER_MANAGER::collision() {
+	//プレイヤーと敵のあたり判定
 	for (int i = CM.numPlayer + CM.numBalloon; i < CM.total; i++) {
 		if (Chara[i]->active() == 1) {
 			float dist = Player->collisionRadius() + Chara[i]->collisionRadius();
@@ -70,5 +68,4 @@ void CHARACTER_MANAGER::draw() {
 	for (int i = 0; i < CM.total; i++) {
 		Chara[i]->draw();
 	}
-	//Chara[0]->draw();
 }

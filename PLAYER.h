@@ -42,8 +42,7 @@ public:
         void move();
     void draw() override;
     void damage();
-    //VECTOR2 posit() { return Character.posit; }
+    //getter
     int hp() { return Player.hp; }
-    //float collisionRadius() { return Character.collisionRadius; };
 };
 

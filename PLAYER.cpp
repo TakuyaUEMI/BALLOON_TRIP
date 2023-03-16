@@ -28,7 +28,9 @@ void PLAYER::update() {
 	if (Character.posit.y >= height + Player.high / 2) Player.hp = 0;
 }
 void PLAYER::move() {
+	//プレイヤーの位置を決める
 	Character.posit += Player.advSpeed * delta;
+	//水平方向の速度を決める
 	if (Abs(Player.advSpeed.x) <= Player.maxSpeed.x) {
 		if (isPress(KEY_A)) {
 			Player.advSpeed.x -= Player.accel.x * delta;
@@ -37,6 +39,7 @@ void PLAYER::move() {
 			Player.advSpeed.x += Player.accel.x * delta;
 		}
 	}
+	//鉛直方向の速度を決める
 	if (isTrigger(KEY_K)) {
 		Player.advSpeed.y -= Player.triggerAccelY;
 		flyFrag = 1;
@@ -51,7 +54,9 @@ void PLAYER::move() {
 	else if (Player.advSpeed.y < -Player.maxSpeed.y) {
 		Player.advSpeed.y = -Player.maxSpeed.y;
 	}
+	//水平方向の速度を減衰させる
 	Player.advSpeed.x *= Player.reductionRatio;
+	//画面外に行かないようにする
 	if (Character.posit.x < Player.wide / 2) {
 		Character.posit.x = Player.wide / 2;
 		Player.advSpeed.x = 0;

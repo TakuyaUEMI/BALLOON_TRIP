@@ -43,6 +43,7 @@ public:
     void miss();
     void draw() override;
     void kill(int i);
+    //getter
     int consecutiveNum() { return AllBalloon.consecutiveNum; }
     void setColor(COLOR c) { AllBalloon.fillColor = c; }
 

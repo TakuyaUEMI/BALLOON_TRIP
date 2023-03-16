@@ -47,6 +47,7 @@ public:
     void drawAuto();
     void checkMapEnd();
     int randomInt(int r);
+    //getter
     float wx() { return Map.wx; }
     float wy() { return Map.wy; }
     int chipSize() { return Map.chipSize; }
