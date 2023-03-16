@@ -30,7 +30,7 @@ void CONTAINER::setTitle() {
 
 	D.title.titleTextColor = COLOR(235, 10, 100);
 	D.title.titleTextSize = 300;
-	D.title.titlePosit = VECTOR2(50, 400);
+	D.title.titlePosit = VECTOR2(70, 400);
 	strcpy_s(D.title.titleStr, "BALLOON TRIP");
 
 	D.title.manualTextColor = COLOR(255, 255, 255);
@@ -40,7 +40,7 @@ void CONTAINER::setTitle() {
 
 	D.title.startTextColor = COLOR(255, 255, 255);
 	D.title.startTextSize = 150;
-	D.title.startPosit = VECTOR2(500, 800);
+	D.title.startPosit = VECTOR2(550, 800);
 	strcpy_s(D.title.startStr, "PRESS SPACE");
 }
 void CONTAINER::setFixedStage() {
@@ -69,8 +69,8 @@ void CONTAINER::setGameOver() {
 
 	D.gameOver.continueTextColor = COLOR(240,240,10);
 	D.gameOver.continueTextSize = 120;
-	D.gameOver.continueTextPosit = VECTOR2(330, 700);
-	strcpy_s(D.gameOver.continueStr, "CONTINUE:PRESS SPACE");
+	D.gameOver.continueTextPosit = VECTOR2(450, 700);
+	strcpy_s(D.gameOver.continueStr, "RETRY:PRESS SPACE");
 	strcpy_s(D.gameOver.continueStr2, "TITLE:PRESS ENTER");
 
 }
@@ -133,19 +133,22 @@ void CONTAINER::setEnemy() {
 
 void CONTAINER::setScore(){
 	D.score.currentScore = 0;
+	D.score.highScore = 0;
 	D.score.currentIndex = 0;
 	const int totalIndex = 4;
 	D.score.totalIndex = totalIndex;
 	int scoreList[totalIndex] = { 100,200,400,800 };
-	int borderList[totalIndex] = { 0,20,50,100 };
+	int borderList[totalIndex] = { 0,10,30,50 };
 	COLOR fillColor[totalIndex] = { COLOR(150,240,10),COLOR(240,150,10),COLOR(240,35,10),COLOR(240,20,220)};
 	for (int i = 0; i < totalIndex; i++) {
 		D.score.scoreList[i] = scoreList[i];
 		D.score.borderList[i] = borderList[i];
 		D.score.fillColor[i] = fillColor[i];
 	}
-	D.score.posit = VECTOR2(100, 100);
+	D.score.posit = VECTOR2(0, 60);
 	D.score.color = COLOR(255, 255, 255);
-	D.score.textSize = 100;
+	D.score.textSize = 60;
 	strcpy_s(D.score.str, "SCORE:");
+	strcpy_s(D.score.strhi, "HIGHSCORE:");
+
 }

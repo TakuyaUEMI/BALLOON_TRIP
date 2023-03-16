@@ -106,7 +106,7 @@ void MAP::drawAuto() {
         char id = BALLOON_ID;
         float* wy = new float[bal + enemy];//¶¬ˆÊ’u‚ğŠi”[‚·‚é”z—ñ
         while (i < bal + enemy) {
-            float tempWy = randomInt(height - Map.chipSize) + Map.chipSize / 2;
+            float tempWy = randomInt(height - Map.chipSize*2) + Map.chipSize;
             frag = 1;
             for (int j = 0; j < i; j++) {
                 if (tempWy > wy[j] - Map.chipSize && tempWy < wy[j] + Map.chipSize * 2) {

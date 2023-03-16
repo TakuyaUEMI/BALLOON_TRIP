@@ -18,6 +18,7 @@ void SCORE::init() {
 }
 void SCORE::update() {
 	changeAddScore();
+	updateHighScore();
 }
 void SCORE::addScore() {
 	Score.currentScore += Score.scoreList[Score.currentIndex];
@@ -30,9 +31,15 @@ void SCORE::changeAddScore() {
 		}
 	}
 }
+void SCORE::updateHighScore() {
+	if (Score.currentScore >= Score.highScore) {
+		Score.highScore = Score.currentScore;
+	}
+}
 void SCORE::draw() {
 	fill(Score.color);
 	textSize(Score.textSize);
 	text(Score.str + (let)Score.currentScore, Score.posit.x, Score.posit.y);
+	text(Score.strhi + (let)Score.highScore, Score.posit.x, Score.posit.y + Score.textSize);
 
 }
