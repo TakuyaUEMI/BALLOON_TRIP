@@ -24,7 +24,7 @@ void PLAYER::appear(float wx,float wy,VECTOR2 vec) {
 void PLAYER::update() {
 	move();
 	Player.invicibleRestTime -= delta;
-	if (flyFrag == 0) Player.advSpeed.y = 0;
+	if (flyFrag == 0) Player.advSpeed.y = 0;//最初、上昇キーを押さない限りは落ちない
 	if (Character.posit.y >= height + Player.high / 2) Player.hp = 0;
 }
 void PLAYER::move() {
@@ -42,7 +42,7 @@ void PLAYER::move() {
 	//鉛直方向の速度を決める
 	if (isTrigger(KEY_K)) {
 		Player.advSpeed.y -= Player.triggerAccelY;
-		flyFrag = 1;
+		flyFrag = 1;//上昇キーを押したら鉛直方向速度が有効になる
 	}
 	if (isPress(KEY_K)) {
 		Player.advSpeed.y -= Player.accel.y * delta;
