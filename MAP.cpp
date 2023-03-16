@@ -93,18 +93,19 @@ void MAP::drawAuto() {
         Map.advDistance = 0;
         float wx = width + Map.chipSize;
         int bal = 0; 
-        if (randomObject(20) >= Map.randBalloon) bal = 1;
-        int enemy = randomObject(Map.randEnemy);
+        if (randomInt(20) >= Map.randBalloon) bal = 1;
+        int enemy = randomInt(Map.randEnemy);
         int i = 0;
         int frag = 1;
         VECTOR2 vec = VECTOR2(0, 0);
         char id = BALLOON_ID;
         float* wy = new float[bal + enemy];
         while (i < bal + enemy) {
-            float tempWy = randomObject(height - Map.chipSize / 2) - Map.chipSize / 2;
+            float tempWy = randomInt(height - Map.chipSize) + Map.chipSize / 2;
+            frag = 1;
             for (int j = 0; j < i; j++) {
-                if (tempWy< wy[j] - Map.chipSize || tempWy > wy[j] + Map.chipSize) {
-                    frag = 1;
+                if (tempWy > wy[j] - Map.chipSize && tempWy < wy[j] + Map.chipSize * 2) {
+                    frag = 0;
                 }
             }
             if (frag == 1) {
@@ -115,8 +116,9 @@ void MAP::drawAuto() {
                 }
                 else{
                     id = ENEMY_ID;
-                    vec = VECTOR2(randomObject(Map.maxEnemySpeedX) - Map.maxEnemySpeedX / 2,
-                        randomObject(Map.maxEnemySpeedY) - Map.maxEnemySpeedY / 2);
+                    //vec = VECTOR2(0, 0);
+                    vec = VECTOR2(randomInt(Map.maxEnemySpeedX) - Map.maxEnemySpeedX / 2,
+                       randomInt(Map.maxEnemySpeedY) - Map.maxEnemySpeedY / 2);
                 }
                 game()->characterManager()->appear(id, wx, tempWy, vec);
                 i++;
@@ -130,7 +132,7 @@ void MAP::checkMapEnd() {
         Map.mapEndFrag = 1;
     }
 }
-int MAP::randomObject(int r) {
+int MAP::randomInt(int r) {
     return random() % r;
 }
 

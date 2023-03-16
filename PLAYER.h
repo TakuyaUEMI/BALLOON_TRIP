@@ -13,8 +13,8 @@ public:
         VECTOR2 posit;
         VECTOR2 advSpeed;
         VECTOR2 accel;
+        float triggerAccelY;
         VECTOR2 maxSpeed;
-        VECTOR2 reductionRate;
         float reductionRatio;
         float gravity;
         //�̗͊֌W

@@ -49,7 +49,7 @@ void CONTAINER::setFixedStage() {
 void CONTAINER::setMap() {
 	D.map.fileName = "stage.txt";
 	D.map.chipSize = 60;
-	D.map.scrollSpeed = 135;
+	D.map.scrollSpeed = 125;
 
 	D.map.randBalloon = 10;//0Å`19Ç≈í≤êÆÅAëÂÇ´Ç¢Ç∆ämó¶Ç™â∫Ç™ÇÈ
 	D.map.randEnemy = 5;
@@ -64,7 +64,7 @@ void CONTAINER::setGameOver() {
 	D.gameOver.backColor = COLOR(50);
 	D.gameOver.overTextColor = COLOR(225,50,200);
 	D.gameOver.overTextSize = 300;
-	D.gameOver.overTextPosit = VECTOR2(100, 500);
+	D.gameOver.overTextPosit = VECTOR2(250, 500);
 	strcpy_s(D.gameOver.overTextStr, "GAME OVER");
 
 	D.gameOver.continueTextColor = COLOR(240,240,10);
@@ -88,11 +88,11 @@ void CONTAINER::setPlayer() {
 	D.playerCharacter.active = 0;
 	D.player.posit = VECTOR2(120, height);
 	D.player.advSpeed = VECTOR2(0, 0);
-	D.player.accel = VECTOR2(650, 1000);
-	D.player.maxSpeed = VECTOR2(500, 800);
-	D.player.reductionRate = (30, 30);
+	D.player.accel = VECTOR2(600, 650);
+	D.player.triggerAccelY = 90;
+	D.player.maxSpeed = VECTOR2(550, 650);
 	D.player.reductionRatio = 0.99f;
-	D.player.gravity = 370;
+	D.player.gravity = 375;
 
 	D.player.hp = 1;
 	D.player.initHp = 1;

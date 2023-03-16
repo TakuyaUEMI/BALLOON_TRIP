@@ -29,7 +29,7 @@ void PLAYER::update() {
 }
 void PLAYER::move() {
 	Character.posit += Player.advSpeed * delta;
-	if (Abs(Player.advSpeed.x) < Player.maxSpeed.x) {
+	if (Abs(Player.advSpeed.x) <= Player.maxSpeed.x) {
 		if (isPress(KEY_A)) {
 			Player.advSpeed.x -= Player.accel.x * delta;
 		}
@@ -37,12 +37,19 @@ void PLAYER::move() {
 			Player.advSpeed.x += Player.accel.x * delta;
 		}
 	}
-	if (Abs(Player.advSpeed.y < Player.maxSpeed.y)) {
-		if (isPress(KEY_K)) {
-			Player.advSpeed.y -= Player.accel.y * delta;
-			flyFrag = 1;
-		}
-		Player.advSpeed.y += Player.gravity * delta;
+	if (isTrigger(KEY_K)) {
+		Player.advSpeed.y -= Player.triggerAccelY;
+		flyFrag = 1;
+	}
+	if (isPress(KEY_K)) {
+		Player.advSpeed.y -= Player.accel.y * delta;
+	}
+	Player.advSpeed.y += Player.gravity * delta;
+	if (Player.advSpeed.y > Player.maxSpeed.y) {
+		Player.advSpeed.y = Player.maxSpeed.y;
+	}
+	else if (Player.advSpeed.y < -Player.maxSpeed.y) {
+		Player.advSpeed.y = -Player.maxSpeed.y;
 	}
 	Player.advSpeed.x *= Player.reductionRatio;
 	if (Character.posit.x < Player.wide / 2) {
